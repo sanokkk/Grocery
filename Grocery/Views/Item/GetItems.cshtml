@@ -1,0 +1,28 @@
+﻿@using Grocery.Domain.Models
+@using Grocery.Domain.Response
+@model List<Item>
+@{
+    ViewData["Title"] = "Каталог";
+}
+<!DOCTYPE html>
+<h1 class="text-center card-deck" style="color:whitesmoke">Каталог</h1>
+@if (@Model.Count > 0)
+{
+    @foreach (var el in @Model)
+    {
+        <div class="card col-md-12" style="margin:5px 0px; flex;" >
+            <img class="img-thumbnail " src="@el.Image" style="position:center"  width="400px" height="400px"/>
+            <p>@el.Name - @el.Price</p>    
+            <button class="btn-light"><a asp-action="GetItemById" asp-route-id="@el.Id" class="card-link">Посмотреть информацию</a></button>
+            <button class="btn-light"><a asp-controller="Cart" asp-action="AddToCart" asp-route-id="@el.Id" class="card-link">Добавить в корзину</a></button>
+            @if (User.IsInRole("Admin"))
+            {
+            <button type="submit"><a asp-controller="Item" asp-action="Save" asp-route-id="@el.Id" class="btn btn-link">Изменить</a></button>
+            <button type="submit"><a  asp-action="DeleteItem" asp-route-id="@el.Id" class="card-link">Удалить</a></button>
+            }
+        </div>
+    }
+}
+
+
+

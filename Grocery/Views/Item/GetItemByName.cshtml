@@ -1,0 +1,12 @@
+﻿@using Grocery.Domain.Models
+@model Item
+@{
+    ViewData["Title"] = "GetItemByName";
+}
+
+<h1>GetItemByName</h1>
+@if (@Model != null)
+{
+   <div class="card"> <p>@Model.Id - @Model.Name - @Model.Description - @Model.Price</p></div>
+}
+

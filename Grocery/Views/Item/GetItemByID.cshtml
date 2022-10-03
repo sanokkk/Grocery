@@ -1,0 +1,17 @@
+﻿@using Grocery.Domain.Models
+@using Grocery.Domain.Response
+@model Item
+@{
+    ViewData["Title"] = "GetItemByID";
+}
+
+<h1>GetItemByID</h1>
+@if (@Model != null)
+{
+    <div class="card" style="flex">
+        <img class="img-thumbnail " src="@Model.Image"  width="400px" height="400px"/>
+        <p>@Model.Id - @Model.Name - @Model.Description - @Model.Price</p>
+    </div>
+}
+
+

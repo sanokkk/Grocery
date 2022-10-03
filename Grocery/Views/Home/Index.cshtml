@@ -1,0 +1,25 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+<div style="padding:20px;">
+ <div class="card" style="display:flex">
+     <h1 style="accent-color" class="text-center">Продуктовый магазин</h1>
+     <h2 style="accent-color" class="text-center">Добро пожаловать!</h2>
+ </div>
+ @if (User.Identity.IsAuthenticated){
+ <div class="col-md-2">
+     <div style="padding:10px; width:300px;" class="card">
+         <h1>Функционал:</h1>
+         <ul>
+             <li><a asp-controller="Item" asp-action="GetItems" class="text-dark" class="card-link">Посмотреть товары</a></li>
+             <li><a asp-controller="Cart" asp-action="GetCartItems" class="text-dark card-link">Посмотреть товары в корзине</a></li>
+         </ul>
+     </div>
+
+     <div class="card">
+         <h1>Информация обо мне:</h1>
+         <a asp-controller="Home" asp-action="AboutMe">Информация</a>
+     </div>
+ </div>
+ 
+ }

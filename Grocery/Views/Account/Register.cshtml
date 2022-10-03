@@ -1,0 +1,25 @@
+﻿@using Grocery.Domain.ViewModels.Item
+@model RegisterViewModel
+@{
+    ViewData["Title"] = "Register";
+}
+<div class="container">
+    <div class="card col-md-6">
+        <h1 class="text-center">Register</h1>
+        <form  asp-action="Register" asp-controller="Account" >
+            <div asp-validation-summary="All" class="text-danger text-center"></div>
+            <div class="form-group">
+                <input asp-for="Name" placeholder="Имя"/>
+            </div>
+            <div class="form-group">
+                <input  asp-for="Password" type="password" placeholder="Пароль"/>
+            </div>
+            <div class="form-group">
+                <input  asp-for="PasswordConfirm" type="password" placeholder="Подтвердите пароль"/>
+            </div>
+            <button class="btn btn-success btn-lg float-right" style="color:greenyellow" type="submit" >Зарегистрироваться</button>
+        </form>
+    </div>
+</div>
+
+
